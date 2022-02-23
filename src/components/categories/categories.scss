@@ -1,0 +1,104 @@
+@import "../../app";
+.categories {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .categories__list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .categories__list-item {
+      padding: 10px;
+      cursor: pointer;
+      position: relative;
+      .categories__list-item-link {
+        text-decoration: none;
+        color: black;
+        font-size: 1.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .categories__sale {
+          color: $main-color;
+        }
+        span {
+          margin-right: 5px;
+        }
+        .categories__list-item-link-icon {
+          font-size: 1.2rem;
+        }
+      }
+      &:hover {
+        .categories__list-item-link {
+          span {
+            color: $main-color;
+          }
+          .categories__list-item-link-icon {
+            transform: rotate(180deg) translateY(25%);
+            transition: transform 0.1s linear;
+            color: $main-color;
+          }
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          height: 2px;
+          width: 100%;
+          background-color: black;
+          @include keyframes(sprint) {
+            0% {
+              width: 0;
+            }
+            100% {
+              width: 100%;
+            }
+          }
+          @include animate(sprint, 0.1s, linear, 1);
+        }
+        .categories__list-child {
+          transform: scaleY(1);
+        }
+      }
+
+      .categories__list-child {
+        position: absolute;
+        top: calc(100% + 1px);
+        left: 0;
+        min-width: 100%;
+        padding: 5px 3px;
+        border: 0.5px solid rgb(210, 210, 210);;
+        border-radius: 5px;
+        transform: scaleY(0);
+        transition: transform 0.3s ease;
+        transform-origin: top;
+        .categories__list-child-item {
+          padding: 5px 0;
+          .categories__list-child-item-link {
+            text-decoration: none;
+            color: black;
+          }
+          &:hover {
+            .categories__list-child-item-link {
+              color: $main-color;
+            }
+          }
+        }
+        .separate-top{
+          position: relative;
+          &::before{
+            content: "";
+            height: 0.5px;
+            width: calc(100% + 8px);
+            background-color: rgb(210, 210, 210);
+            position: absolute;
+            top: -0.25px;
+            left: -4px;
+          }
+        }
+      }
+    }
+  }
+}

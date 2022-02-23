@@ -1,0 +1,47 @@
+@import "../../app";
+.welcomeheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 100px;
+  background-color: rgb(243, 243, 243);
+  .welcomeheader__left {
+    flex: 1;
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+
+  .welcomeheader__right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    .welcomeheader__right-icon {
+      font-size: 1.6rem;
+      margin-right: 4px;
+      @include keyframes(ringPhone) {
+        0% {
+          transform: rotate(10deg);
+        }
+        25% {
+          transform: rotate(-10deg);
+        }
+        50% {
+          transform: rotate(10deg);
+        }
+        75% {
+          transform: rotate(-10deg);
+        }
+        100% {
+          transform: rotate(10deg);
+        }
+      }
+      @include animate(ringPhone, 1s, linear, infinite);
+    }
+    span {
+      color: $main-color;
+    }
+  }
+}
